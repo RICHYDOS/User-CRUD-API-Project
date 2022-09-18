@@ -1,0 +1,14 @@
+from dataclasses import fields
+from pyexpat import model
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from .models import *
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = CustomUser
+        fields = ("username", "email",)
+
+class CustomUserChangeForm(UserChangeForm):
+    class Meta:
+        model = CustomUser
+        fields = UserChangeForm.Meta.fields
