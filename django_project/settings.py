@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    "drf_spectacular",
 
     #Local Apps
     'user_api',
@@ -146,7 +147,14 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 SITE_ID = 1
+
+SPECTACULAR_SETTINGS = {
+"TITLE": "User CRUD API Project",
+"DESCRIPTION": "A simple User CRUD API with authentication, and authorization",
+"VERSION": "1.0.0",
+}
